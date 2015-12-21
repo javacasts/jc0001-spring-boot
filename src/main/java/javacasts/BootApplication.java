@@ -1,22 +1,24 @@
 package javacasts;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
+@RestController
 @SpringBootApplication
-public class BootApplication implements ApplicationRunner
+public class BootApplication
 {
 
-    public static void main(String[] args) {
-        SpringApplication.run(BootApplication.class, args);
-    }
-
-	@Override
-	public void run(ApplicationArguments arg0) throws Exception
+	public static void main(String[] args)
 	{
-		System.out.println("hello world");
+		SpringApplication.run(BootApplication.class, args);
+	}
+
+	@RequestMapping("/")
+	public String index()
+	{
+		return "hello world";
 	}
 }
